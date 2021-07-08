@@ -1,0 +1,40 @@
+<div class="minimal-style">
+  <article class="hentry post slideUp">
+    <header class="entry-header">
+      <h2 class="entry-title"><a [routerLink]="['/home/article', article.id]">{{article.title}}</a></h2>
+      <div class="entry-meta">
+        <span class="cat-links">
+          <a [routerLink]="['/home/articles-by-category', article.category.id]"
+            title="View all posts in {{article.category.name}}" rel="category tag">{{article.category.name}}</a>
+        </span>
+        <span class="entry-date">
+          <time class="entry-date">{{article?.publishDate | date: 'mediumDate'}}</time>
+        </span>
+      </div>
+    </header>
+    <div class="featured-image">
+      <a [routerLink]="['/home/article', article.id]">
+        <ngx-progressive-img-loader (thumbnailLoaded)="thumbnailLoaded()" [preserveAspectRatio]="true"
+          [placeholderBgColor]="'grey'" [img]="'assets/images/' + article.previewImageFileName"
+          [thumbnail]="'assets/images/' + article.thumbnailImageFileName">
+
+          <ng-container @ngIfAnimation>
+            <div @hide *ngIf="showPlaceholderGreyBackground" class="ph-item">
+              <div class="ph-col-12">
+                <div class="ph-picture"></div>
+              </div>
+            </div>
+          </ng-container>
+
+        </ngx-progressive-img-loader>
+      </a>
+    </div>
+    <div class="entry-content">
+      <p>{{article.previewText}}
+        <span class="more">
+          <a [routerLink]="['/home/article', article.id]" class="more-link">Read More</a>
+        </span>
+      </p>
+    </div>
+  </article>
+</div>

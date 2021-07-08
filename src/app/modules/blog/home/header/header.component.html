@@ -1,0 +1,35 @@
+<header id="masthead" class="site-header is-menu-fixed is-always-fixed" role="banner">
+  <nav id="primary-navigation" class="site-navigation primary-navigation" role="navigation">
+    <div class="layout-medium header-small">
+
+      <h1 class="site-title">
+        <a [routerLink]="[ '/home', '/' ]" rel="home">
+          <img src="assets/images/logo.png" alt="logo">
+          <span class="screen-reader-text">Viqas</span>
+        </a>
+      </h1>
+
+      <div class="nav-menu">
+        <ul>
+          <li><a [routerLink]="[ '/home', '/' ]">HOME</a></li>
+          <li><a [routerLink]="[ '/about-me' ]">ABOUT ME</a></li>
+        </ul>
+      </div>
+
+      <div class="social-container">
+        <a target="_blank" href="https://twitter.com/viqash12">
+          <fa-icon [icon]="faTwitter"></fa-icon>
+        </a>
+        <a target="_blank" href="https://github.com/viqashussain">
+          <fa-icon [icon]="faGithub"></fa-icon>
+        </a>
+        <a target="_blank" href="https://www.linkedin.com/in/viqas-hussain-6a846656/">
+          <fa-icon [icon]="faLinkedin"></fa-icon>
+        </a>
+        <a target="_blank" href="https://stackoverflow.com/users/4300608/viqas">
+          <fa-icon [icon]="faStackOverflow"></fa-icon>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>

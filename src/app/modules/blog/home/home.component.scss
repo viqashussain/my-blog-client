@@ -1,0 +1,33 @@
+@media screen and (min-width: 992px) {
+  .ph-item {
+    height: 897px;
+
+    .ph-picture {
+      height: 658px;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .ph-item {
+    display: block;
+
+    .content-ph {
+      height: inherit;
+    }
+  }
+}
+
+.ph-item {
+  margin: 0;
+  border: none;
+  padding-bottom: 13px;
+}
+
+.pagination {
+  cursor: pointer;
+}
+
+.blog-regular {
+  min-height: 1000px;
+}

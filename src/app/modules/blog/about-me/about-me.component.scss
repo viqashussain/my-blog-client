@@ -1,0 +1,17 @@
+@media screen and (min-width: 992px) {
+  ngx-progressive-img-loader /deep/ {
+    .ngx-progressive-img-container {
+      height: 547px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  ngx-progressive-img-loader /deep/ {
+    .ngx-progressive-img-container-default-bg,
+    .ngx-progressive-img-container-low-res-container,
+    .post-thumbnail {
+      height: 213px !important;
+    }
+  }
+}

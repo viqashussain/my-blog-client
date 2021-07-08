@@ -1,0 +1,94 @@
+<div id="page" class="hfeed site minimal-style single-post">
+  <div id="main" class="site-main">
+
+    <div @ngIfAnimation class="featured-top" *ngIf="!(article$ | async)">
+        <div @hide class="ph-item">
+          <div class="ph-col-12">
+            <div class="ph-picture"></div>
+          </div>
+        </div>
+
+        <div @hide class="ph-item ph-item-picture layout-medium">
+          <div class="ph-col-12">
+            <div class="ph-row">
+              <div class="ph-col-12 empty"></div>
+              <div class="ph-col-12 big"></div>
+              <div class="ph-col-12 empty"></div>
+              <div class="ph-col-12 big"></div>
+              <div class="ph-col-12 empty"></div>
+              <div class="ph-col-12 big"></div>
+              <div class="ph-col-12 empty"></div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div @show *ngIf="(showArticle$ | async)" class="featured-top">
+      <ngx-progressive-img-loader [preserveAspectRatio]="true" [img]="'assets/images/' + articleImageFileName"
+        [thumbnail]="'assets/images/' + (article$ | async)?.thumbnailImageFileName">
+
+        <div class="post-thumbnail">
+          <header class="entry-header">
+            <div class="entry-meta">
+              <span class="cat-links">
+                <a title="View all posts in {{(article$ | async)?.category.name}}"
+                  [routerLink]="['/home/articles-by-category', (article$ | async)?.category.id]"
+                  rel="category tag">{{(article$ | async)?.category.name}}</a>
+              </span>
+            </div>
+            <h1 class="entry-title">{{(article$ | async)?.title}}</h1>
+            <div class="entry-meta">
+              <span class="entry-date">
+                <time class="entry-date">{{(article$ | async)?.publishDate | date: 'mediumDate'}}</time>
+              </span>
+            </div>
+          </header>
+        </div>
+      </ngx-progressive-img-loader>
+    </div>
+
+    <div *ngIf="(showArticle$ | async)" @show class="layout-medium">
+      <div id="primary" class="content-area">
+        <div id="content" class="site-content" role="main">
+          <article class="hentry post slideUp" id="post0">
+            <section [innerHtml]="(article$ | async)?.html | safe" class="entry-content text">
+            </section>
+
+            <div class="post-tags tagcloud">
+              <a [routerLink]="['/home/articles-by-hashtag', tag.id]" *ngFor="let tag of (article$ | async)?.tags" href="#"
+                rel="tag">{{tag.name}}</a>
+            </div>
+
+            <div class="share-links">
+
+              <h3>SHARE THIS POST</h3>
+
+              <a rel="nofollow" target="_blank"
+                href="http://twitter.com/home?status=Currently reading: '{{(article$ | async)?.title}}' {{appUrl}}/article/{{(article$ | async)?.id}}"
+                title="Share this post with your followers">
+                <fa-icon [icon]="faTwitter"></fa-icon>
+              </a>
+
+              <a rel="nofollow" target="_blank"
+                href="http://www.facebook.com/sharer.php?u={{appUrl}}/article/{{(article$ | async)?.id}}&amp;t={{(article$ | async)?.title}}"
+                title="Share this post on Facebook">
+                <fa-icon [icon]="faFacebook"></fa-icon>
+              </a>
+
+              <a rel="nofollow" target="_blank"
+                href="https://plus.google.com/share?url={{appUrl}}/article/{{(article$ | async)?.id}}"
+                title="Share this post on Google+">
+                <fa-icon [icon]="faGooglePlus"></fa-icon>
+              </a>
+
+            </div>
+          </article>
+
+          <app-related-posts [relatedArticle]="article$"></app-related-posts>
+        </div>
+        <disqus *ngIf="(article$ | async)" [identifier]="'/article/' + (article$ | async)?.id">
+        </disqus>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="page">
+  <div class="featured-top">
+    <ngx-progressive-img-loader class="post-thumbnail" [preserveAspectRatio]="true"
+      [img]="'assets/images/AboutMe.jpg'" [thumbnail]="'assets/images/Thumbnail AboutMe.jpg'">
+      <header class="entry-header">
+        <h1 class="entry-title">About Me</h1>
+      </header>
+    </ngx-progressive-img-loader>
+  </div>
+  <div class="layout-fixed">
+    <div id="primary" class="content-area">
+      <div id="content" class="site-content" role="main">
+        <article class="hentry page">
+          <div class="entry-content">
+            <div [innerHtml]="(aboutMeData$ | async)?.htmlContent"></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>

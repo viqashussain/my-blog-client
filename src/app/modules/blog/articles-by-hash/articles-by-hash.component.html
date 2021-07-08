@@ -1,0 +1,23 @@
+<div class="layout-medium">
+  <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+
+
+      <header class="entry-header">
+        <h1 class="entry-title"><i>Posts tagged</i> <span class="cat-title">#{{ (tag$ | async)?.name }}</span></h1>
+      </header>
+
+      <div @show class="blog-list  blog-stream">
+        <ng-container @show *ngIf="(showArticles$ | async)">
+          <app-blog-list-small-item [article]="article" *ngFor="let article of articles$ | async">
+          </app-blog-list-small-item>
+        </ng-container>
+      </div>
+
+      <div *ngIf="!(showArticles$ | async)" @ngIfAnimation class="has-post-thumbnail minimal-style hentry post">
+        <app-blog-list-small-item *ngFor="let placeholderNumber of numberOfPlaceholderItems">
+        </app-blog-list-small-item>
+      </div>
+    </div>
+  </div>
+</div>

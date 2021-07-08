@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/rotate-words.css";
+@import "./assets/main.css";
+@import "./assets/768.css";
+@import "./assets/992.css";
+@import "./assets/align.css";
+
+@import "~highlight.js/styles/gruvbox-dark.css";
+@import "~placeholder-loading/src/scss/placeholder-loading";
+
+.ph-item {
+  height: 658px;
+
+  .ph-picture {
+    height: 100%;
+  }
+}
+
+body {
+  margin: 0 !important;
+}
+
+pre {
+  margin: 0;
+  + p {
+    margin-top: 0 !important;
+  }
+}
+
+p:nth-child(1) {
+  margin-bottom: 0 !important;
+}

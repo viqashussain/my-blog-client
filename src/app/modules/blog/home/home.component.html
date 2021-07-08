@@ -1,0 +1,65 @@
+<div id="page" class="hfeed site">
+  <div id="main" class="site-main">
+    <div class="blog-animated layout-medium">
+      <div id="primary" class="content-area">
+
+        <app-home-title></app-home-title>
+
+        <div id="content" class="site-content" role="main">
+          <div @show *ngIf="(showArticles$ | async)" class="blog-regular blog-stream">
+            <app-blog-list-item [article]="article" *ngFor="let article of articles$ | async"></app-blog-list-item>
+            <div class="hentry"></div>
+          </div>
+
+          <ng-container *ngIf="!(showArticles$ | async)">
+            <div *ngFor="let placeholderNumber of numberOfPlaceholderItems" @ngIfAnimation
+              class="blog-regular blog-stream">
+              <div @hide>
+                <div class="ph-item">
+                  <div class="ph-col-12 title-ph">
+                    <div class="ph-row">
+                      <div class="ph-col-2 big"></div>
+                    </div>
+                  </div>
+                  <div class="ph-col-12 content-ph">
+                    <div class="ph-picture">
+                    </div>
+                    <div class="ph-row">
+                      <div class="ph-col-12 empty"></div>
+                      <div class="ph-col-12"></div>
+                      <div class="ph-col-12 empty"></div>
+                      <div class="ph-col-12"></div>
+                      <div class="ph-col-12 empty"></div>
+                      <div class="ph-col-12"></div>
+                      <div class="ph-col-12 empty"></div>
+                      <div class="ph-col-6"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+          <nav class="post-pagination"> 
+            <ul class="pagination">
+
+              <li *ngIf="showGoToFirstPage$ | async" class="pagination-first" (click)="goToFirstPage()"> <a> First </a></li>
+
+              <li *ngIf="showGoToFirstPage$ | async" class="pagination-prev" (click)="goToPrevPage()">
+                <a rel="prev"> </a></li>
+
+              <li [ngClass]="{'current': (currentPageNumber$ | async) == pageNumber}" (click)="goToPage(pageNumber)"
+                *ngFor="let pageNumber of pageNumbers" class="pagination-num"><a> {{pageNumber}} </a></li>
+
+              <li *ngIf="showGoToLastPage$ | async" class="pagination-next ">
+                <a rel="next" (click)="goToNextPage()"> </a></li>
+
+              <li *ngIf="showGoToLastPage$ | async" class="pagination-last" (click)="goToLastPage(pageNumber)"><a>Last</a></li>
+            </ul>
+          </nav>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

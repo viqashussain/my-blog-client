@@ -1,0 +1,10 @@
+<aside class="related-posts">
+  <h3>You May Also Like</h3>
+  <div *ngFor="let article of articles$ | async" class="post-thumbnail"
+    [ngStyle]="{ 'background-image': 'url(assets/images/' + article.previewImageFileName + ')'}">
+    <header class="entry-header">
+      <h2 class="entry-title"><a>{{article.title}}</a></h2>
+      <p><a [routerLink]="['/home/article', article.id]" class="more-link">View Post</a></p>
+    </header>
+  </div>
+</aside>

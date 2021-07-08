@@ -1,0 +1,36 @@
+@media screen and (min-width: 992px) {
+  ngx-progressive-img-loader /deep/ {
+    .ngx-progressive-img-container {
+      height: 662px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  ngx-progressive-img-loader /deep/ {
+    .ngx-progressive-img-container-default-bg,
+    .ngx-progressive-img-container-low-res-container,
+    .post-thumbnail {
+      height: 213px !important;
+    }
+  }
+
+  .featured-top {
+    .ph-item {
+      height: 213px;
+    }
+  }
+}
+
+.ph-item-picture {
+  border: none;
+}
+
+.post-thumbnail {
+  background-color: transparent;
+}
+
+.animation {
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+}

@@ -1,0 +1,48 @@
+<article *ngIf="article" @show class="hentry post has-post-thumbnail minimal-style">
+  <div class="featured-image">
+    <img [routerLink]="['/home/article', article.id]" [src]="'assets/images/' + article.previewImageFileName" alt="blog-image">
+  </div>
+  <div class="hentry-middle">
+    <header class="entry-header">
+      <div class="entry-meta">
+        <span class="cat-links">
+          <a [routerLink]="['/home/articles-by-category', article.category.id]"
+            title="View all posts in {{article.category.name}}" rel="category tag">{{article.category.name}}</a>
+        </span>
+        <span class="entry-date">
+          <time class="entry-date">{{article?.publishDate | date: 'mediumDate'}}</time>
+        </span>
+      </div>
+      <h2 class="entry-title"><a [routerLink]="['/home/article', article.id]">{{article.title}}</a></h2>
+    </header>
+    <div class="entry-content">
+      <p>{{article.previewText}}
+        <span class="more">
+          <a [routerLink]="['/home/article', article.id]" class="more-link">Read More</a>
+        </span>
+      </p>
+    </div>
+  </div>
+</article>
+
+<div *ngIf="!article" @ngIfAnimation class="has-post-thumbnail minimal-style post">
+    <div @hide class="ph-item">
+      <div class="ph-col-4 ph-picture-item">
+        <div class="ph-picture"></div>
+      </div>
+      <div @hide class="ph-col-8">
+        <div class="ph-row">
+          <div class="ph-col-2 big"></div>
+          <div class="ph-col-12 empty"></div>
+          <div class="ph-col-12"></div>
+          <div class="ph-col-12 empty"></div>
+          <div class="ph-col-12"></div>
+          <div class="ph-col-12 empty"></div>
+          <div class="ph-col-12"></div>
+          <div class="ph-col-12 empty"></div>
+          <div class="ph-col-6"></div>
+          <div class="ph-col-12 empty"></div>
+        </div>
+      </div>
+    </div>
+  </div>
