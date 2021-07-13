@@ -7,6 +7,7 @@ export interface Article
     creationDate: string;
     publishDate: string;
     title: string;
+    urlTitle: string;
     html: string;
     articleImageFileName: string;
     category: Category

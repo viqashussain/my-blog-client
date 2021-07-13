@@ -11,7 +11,7 @@ export class ArticleService {
 
   constructor(private http: HttpClient) { }
 
-  getArticle(articleId: number): Observable<Article> {
-    return this.http.get<Article>(`${AppConfig.baseUrl}/Article/${articleId}`);
+  getArticle(articleUrlName: string): Observable<Article> {
+    return this.http.get<Article>(`${AppConfig.baseUrl}/Article/${articleUrlName}`);
   }
 }

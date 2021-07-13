@@ -1,6 +1,6 @@
 <article *ngIf="article" @show class="hentry post has-post-thumbnail minimal-style">
   <div class="featured-image">
-    <img [routerLink]="['/home/article', article.id]" [src]="'assets/images/' + article.previewImageFileName" alt="blog-image">
+    <img [routerLink]="['/home/article', article.urlTitle]" [src]="'assets/images/' + article.previewImageFileName" alt="blog-image">
   </div>
   <div class="hentry-middle">
     <header class="entry-header">
@@ -13,12 +13,12 @@
           <time class="entry-date">{{article?.publishDate | date: 'mediumDate'}}</time>
         </span>
       </div>
-      <h2 class="entry-title"><a [routerLink]="['/home/article', article.id]">{{article.title}}</a></h2>
+      <h2 class="entry-title"><a [routerLink]="['/home/article', article.urlTitle]">{{article.title}}</a></h2>
     </header>
     <div class="entry-content">
       <p>{{article.previewText}}
         <span class="more">
-          <a [routerLink]="['/home/article', article.id]" class="more-link">Read More</a>
+          <a [routerLink]="['/home/article', article.urlTitle]" class="more-link">Read More</a>
         </span>
       </p>
     </div>

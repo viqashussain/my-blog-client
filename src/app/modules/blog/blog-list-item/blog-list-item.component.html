@@ -1,7 +1,7 @@
 <div class="minimal-style">
   <article class="hentry post slideUp">
     <header class="entry-header">
-      <h2 class="entry-title"><a [routerLink]="['/home/article', article.id]">{{article.title}}</a></h2>
+      <h2 class="entry-title"><a [routerLink]="['/home/article', article.urlTitle]">{{article.title}}</a></h2>
       <div class="entry-meta">
         <span class="cat-links">
           <a [routerLink]="['/home/articles-by-category', article.category.id]"
@@ -13,7 +13,7 @@
       </div>
     </header>
     <div class="featured-image">
-      <a [routerLink]="['/home/article', article.id]">
+      <a [routerLink]="['/home/article', article.urlTitle]">
         <ngx-progressive-img-loader (thumbnailLoaded)="thumbnailLoaded()" [preserveAspectRatio]="true"
           [placeholderBgColor]="'grey'" [img]="'assets/images/' + article.previewImageFileName"
           [thumbnail]="'assets/images/' + article.thumbnailImageFileName">
@@ -32,7 +32,7 @@
     <div class="entry-content">
       <p>{{article.previewText}}
         <span class="more">
-          <a [routerLink]="['/home/article', article.id]" class="more-link">Read More</a>
+          <a [routerLink]="['/home/article', article.urlTitle]" class="more-link">Read More</a>
         </span>
       </p>
     </div>
