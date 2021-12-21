@@ -22,6 +22,7 @@ import { FooterComponent } from 'src/app/footer/footer.component';
 import { SafePipe } from 'src/app/safe.pipe';
 import { SafeStylePipe } from 'src/app/safe-style.pipe';
 import { AboutMeComponent } from './about-me/about-me.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AboutMeComponent } from './about-me/about-me.component';
     SafePipe,
     SafeStylePipe,
     RelatedPostsComponent,
-    AboutMeComponent
+    AboutMeComponent,
+    ProjectsComponent
   ],
   imports: [
     PrismModule,

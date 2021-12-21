@@ -6,6 +6,7 @@ import { BlogLayoutComponent } from './blog-layout/blog-layout.component';
 import { ArticlesByHashComponent } from './articles-by-hash/articles-by-hash.component';
 import { ArticlesByCatComponent } from './articles-by-cat/articles-by-cat.component';
 import { AboutMeComponent } from './about-me/about-me.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
       {
         path: 'about-me',
         component: AboutMeComponent
+      },
+      {
+        path: 'projects',
+        component: ProjectsComponent
       },
       { path: '**', redirectTo: 'home' }
     ]

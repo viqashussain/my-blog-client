@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
 
   articles$: Observable<ArticlePreview[]>;
   showArticles$: Observable<boolean>;
-  numberOfPlaceholderItems: number[] = [1, 2, 3];
+  numberOfPlaceholderItems: number[] = [1, 2, 3, 4, 5, 6];
   haveArticlesAtBeginning: boolean = true;
   componentDestroyed$: Subject<boolean> = new Subject();
 
